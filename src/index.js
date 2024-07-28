@@ -1,26 +1,43 @@
-
-
 import loafImageSrc from './loaf.jpg';
-import './styles.css'; 
+import './styles.css'; // Import CSS
 
 console.log("Hello, Webpack!");
 
-let content = document.getElementById('content');
-let heading = document.createElement('h1');
-heading.textContent = 'Our Sourdough Bakery';
+// Function to update the content based on the selected tab
+function showContent(tab) {
+    const content = document.getElementById('content');
+    content.innerHTML = ''; // Clear existing content
 
-let loafImage = document.createElement('img');
-loafImage.src = loafImageSrc;
-loafImage.alt = 'Sourdough Loaf on the counter';
+    switch(tab) {
+        case 'home':
+            content.innerHTML = `
+                <h1>Welcome to Our Sourdough Bakery</h1>
+                <img src="${loafImageSrc}" alt="Sourdough Loaf on the counter">
+                <p>We sell sourdough loaves, sandwich breads, english muffins, bagels, and many different sourdough-based pastries for optimal gut health and flavor.</p>
+            `;
+            break;
+        case 'menu':
+            content.innerHTML = `
+                <h1>Menu</h1>
+                <p>Our menu includes a variety of breads and pastries. Visit us at the Market District Farmers Market weekly during the summers from 11am-1pm on Thursdays.</p>
+            `;
+            break;
+        case 'about':
+            content.innerHTML = `
+                <h1>About Us</h1>
+                <p>We are passionate about sourdough baking and dedicated to providing high-quality products. Learn more about our story and values.</p>
+            `;
+            break;
+        default:
+            content.innerHTML = `<h1>Welcome</h1>`;
+            break;
+    }
+}
 
-let secondHeader = document.createElement('h2');
-secondHeader.textContent = 'Welcome to my bakery! Where we sell sourdough loaves, sandwich breads, english muffins, bagels, and many different sourdough based pastries for optimal gut health and flavor. We sell at the Market District Farmers Market weekly during the summers from 11am-1pm on Thursdays. You can pre-order by clicking the button below to place an order for pickup and secure your items for the week!';
- 
-let newButton = document.createElement('button');
-newButton.textContent = 'Preorders';
-newButton.id = 'preorder-button';
+// Add event listeners to the buttons
+document.getElementById('home-btn').addEventListener('click', () => showContent('home'));
+document.getElementById('menu-btn').addEventListener('click', () => showContent('menu'));
+document.getElementById('about-btn').addEventListener('click', () => showContent('about'));
 
-content.appendChild(heading);
-content.appendChild(loafImage);
-content.appendChild(secondHeader);
-content.appendChild(newButton);
+// Set the default content to 'home' when the page loads
+document.addEventListener('DOMContentLoaded', () => showContent('home'));
