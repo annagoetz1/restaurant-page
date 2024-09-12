@@ -51,6 +51,9 @@ document.getElementById("menuButton").addEventListener('click', () => {
     dropdownContent.classList.toggle('show'); // Toggle the 'show' class
 });
 
+document.querySelectorAll('.carousel-item')[0].src = image1;
+document.querySelectorAll('.carousel-item')[1].src = image2;
+document.querySelectorAll('.carousel-item')[2].src = image3;
 // Carousel functionality
 document.addEventListener('DOMContentLoaded', () => {
     // Encapsulate carousel functionality
