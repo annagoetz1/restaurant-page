@@ -17,7 +17,9 @@ img {
 }
 
 .carousel-item {
-  width: 100%;
+  width: 50%; /* Adjust the percentage or use a fixed width like '200px' */
+  max-width: 300px; /* Limit the max size */
+  height: auto; /* Maintain aspect ratio */
   display: none; /* Initially, hide all images */
 }
 
