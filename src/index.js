@@ -41,3 +41,9 @@ document.getElementById('about-btn').addEventListener('click', () => showContent
 
 // Set the default content to 'home' when the page loads
 document.addEventListener('DOMContentLoaded', () => showContent('home'));
+
+document.getElementById("menuButton").addEventListener('click', () => {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.classList.toggle('show'); // Toggle the 'show' class
+});
+
