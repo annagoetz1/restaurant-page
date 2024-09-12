@@ -1,5 +1,8 @@
 import loafImageSrc from './loaf.jpg';
 import './styles.css'; // Import CSS
+import image1 from './image1.jpg';
+import image2 from './image2.jpg';
+import image3 from './image3.jpg';
 
 console.log("Hello, Webpack!");
 
