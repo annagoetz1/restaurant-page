@@ -42,8 +42,43 @@ document.getElementById('about-btn').addEventListener('click', () => showContent
 // Set the default content to 'home' when the page loads
 document.addEventListener('DOMContentLoaded', () => showContent('home'));
 
+// Dropdown menu functionality
 document.getElementById("menuButton").addEventListener('click', () => {
     const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.classList.toggle('show'); // Toggle the 'show' class
 });
 
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Encapsulate carousel functionality
+    (function carousel() {
+        const images = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0; // Keep track of the current image within the scope
+
+        // Function to show the image at a given index
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none'; // Show current, hide others
+            });
+        }
+
+        // Function to go to the next image
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+            showImage(currentIndex);
+        }
+
+        // Function to go to the previous image
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
+            showImage(currentIndex);
+        }
+
+        // Show the first image initially
+        showImage(currentIndex);
+
+        // Add event listeners to the buttons
+        document.getElementById('nextBtn').addEventListener('click', nextImage);
+        document.getElementById('prevBtn').addEventListener('click', prevImage);
+    })();
+});
