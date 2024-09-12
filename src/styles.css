@@ -32,6 +32,19 @@ button {
   cursor: pointer;
 }
 
+/* Position adjustments for carousel buttons */
+#prevBtn, #nextBtn {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 10; /* Ensure it stays above the images */
+}
+
 #prevBtn {
   left: 10px;
 }
@@ -52,6 +65,8 @@ button {
   padding: 10px;
   border: none;
   cursor: pointer;
+  margin: 10px; /* Add margin to avoid conflict */
+  position: relative; /* Ensure it's not overlapping with other elements */
 }
 
 .dropdown-content {
